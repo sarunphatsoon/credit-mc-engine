@@ -24,6 +24,8 @@ cmake --build build -j
 cd python
 python compare.py
 python concentration.py
+python plot_concentration.py
+python plot_correlation.py
 ```
 
 ## Results
@@ -47,10 +49,20 @@ ignores concentration:
 IRB VaR is 79.35 in every row. With 40% of exposure in 10 loans, simulated
 tail risk is about 20% above the IRB figure.
 
+![Concentration effect](docs/concentration.png)
+
+**Correlation sweep** (1,000 equal obligors, PD 2%, LGD 45%, 1M scenarios x 5 runs per point).
+Monte Carlo VaR tracks the IRB formula closely; the excess over IRB is about 4% at
+rho = 0.05 and falls to about 1% for rho >= 0.175 (error bars are standard errors over 5 runs).
+
+![Correlation sweep](docs/correlation.png)
+
 ## Layout
 
 - `include/creditmc/engine.hpp`, `src/engine.cpp`: simulation engine
 - `src/bindings.cpp`: pybind11 module `creditmc_core`
 - `python/reference.py`: NumPy reference implementation
 - `python/compare.py`: validation and benchmark
-- `python/concentration.py`: concentration experiment
+- `python/concentration.py`: concentration experiment (table)
+- `python/plot_concentration.py`: concentration plot
+- `python/plot_correlation.py`: correlation sweep plot
