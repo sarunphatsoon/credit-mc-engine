@@ -1,4 +1,4 @@
-![CI](https://github.com/YOUR_USERNAME/REPO_NAME/actions/workflows/ci.yml/badge.svg)
+![CI](https://github.com/sarunphatsoon/credit-mc-engine/actions/workflows/ci.yml/badge.svg)
 
 # Credit Loss Monte Carlo Engine (C++ / Python)
 
